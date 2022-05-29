@@ -26,6 +26,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 
 
+# --------------------------------------------------------SDL-----------------------------------------------------------
 # if (NOT ${__EMSCRIPTEN__})
     set( SDL_STATIC ON CACHE BOOL "" FORCE )
     set( SDL_SHARED OFF CACHE BOOL "" FORCE )
@@ -33,5 +34,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 #     include_directories(${EXTERNAL_DIR}/glfw)
 # endif ()
 
+# --------------------------------------------------------GLAD----------------------------------------------------------
 
-target_link_libraries(${PROJECT_NAME} SDL2main SDL2-static)
+add_library(glad ${EXTERNAL_DIR}/glad/include/glad/glad.h ${EXTERNAL_DIR}/glad/src/glad.c)
+target_include_directories(glad PUBLIC ${EXTERNAL_DIR}/glad/include/)
+
+
+
+target_link_libraries(${PROJECT_NAME} glad SDL2main SDL2-static)
