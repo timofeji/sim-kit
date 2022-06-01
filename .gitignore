@@ -5,6 +5,8 @@
 *.o
 *.obj
 
+emsdk
+
 # Precompiled Headers
 *.gch
 *.pch
