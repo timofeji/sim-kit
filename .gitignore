@@ -52,7 +52,7 @@ include/divisible/*
 build/**/*
 
 include/*
-lib/*
+lib/**
 bin/*
 test/test_runner
 
